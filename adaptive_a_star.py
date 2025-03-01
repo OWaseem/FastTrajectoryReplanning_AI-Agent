@@ -51,30 +51,50 @@ def adaptive_a_star(grid, start, goal):
     current = start
     full_path = [current]
     
-    # Initialize heuristic values using Manhattan distance.
+    # Initialize known grid with start and goal positions
+    known_grid[start[0]][start[1]] = grid[start[0]][start[1]]
+    known_grid[goal[0]][goal[1]] = grid[goal[0]][goal[1]]
+    
+    # Initialize heuristic values using Manhattan distance
     h_values = {}
     for i in range(n):
         for j in range(n):
             h_values[(i, j)] = manhattan_distance((i, j), goal)
     
     while current != goal:
+        # Update knowledge about surrounding cells
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            adj = (current[0] + dx, current[1] + dy)
+            if 0 <= adj[0] < n and 0 <= adj[1] < n:
+                known_grid[adj[0]][adj[1]] = grid[adj[0]][adj[1]]
+        
+        # Find path using current knowledge
         result = adaptive_a_star_search(known_grid, current, goal, h_values)
         if result[0] is None:
-            print("Target not reachable with current knowledge.")
             return full_path, False
+            
         path, cost, closed_set, parent = result
-        # Update h-values for all expanded nodes.
+        
+        # Update h-values for all expanded nodes
         for s, g_val in closed_set.items():
             h_values[s] = cost - g_val
+        
+        # Move along path until obstacle or goal
         for next_cell in path[1:]:
+            # Update knowledge about next cell's surroundings
             for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-                adj = (current[0] + dx, current[1] + dy)
+                adj = (next_cell[0] + dx, next_cell[1] + dy)
                 if 0 <= adj[0] < n and 0 <= adj[1] < n:
                     known_grid[adj[0]][adj[1]] = grid[adj[0]][adj[1]]
+            
+            # Check if next cell is blocked
             if grid[next_cell[0]][next_cell[1]] == 1:
                 break
+                
             current = next_cell
             full_path.append(current)
+            
             if current == goal:
                 return full_path, True
+                
     return full_path, True

@@ -1,0 +1,27 @@
+
+==================== WORLD CREATION ====================
+Generating gridworlds of size 21×21...
+
+World 01: gridworlds\gridworld_01.png
+World 02: gridworlds\gridworld_02.png
+World 03: gridworlds\gridworld_03.png
+
+==================== ALGORITHM RUNS ====================
+
+-------- WORLD 01 --------
+World 01: Forward – Path found in 0.0016 sec. → results/forward_world01_grid21.png
+World 01: Backward – Path found in 0.0027 sec. → results/backward_world01_grid21.png
+World 01: Adaptive – Path found in 0.0077 sec. → results/adaptive_world01_grid21.png
+
+-------- WORLD 02 --------
+World 02: Forward – No path found (runtime: 0.0004 sec). → results/forward_world02_grid21_NOPATH.png
+World 02: Backward – No path found (runtime: 0.0078 sec). → results/backward_world02_grid21_NOPATH.png
+World 02: Adaptive – No path found (runtime: 0.0026 sec). → results/adaptive_world02_grid21_NOPATH.png
+
+-------- WORLD 03 --------
+World 03: Forward – No path found (runtime: 0.0754 sec). → results/forward_world03_grid21_NOPATH.png
+World 03: Backward – No path found (runtime: 0.0061 sec). → results/backward_world03_grid21_NOPATH.png
+World 03: Adaptive – No path found (runtime: 0.0079 sec). → results/adaptive_world03_grid21_NOPATH.png
+
+==================== SUMMARY ====================
+Finished processing 3 gridworlds.
