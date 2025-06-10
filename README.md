@@ -1,10 +1,6 @@
-Below is an updated version of your README that reflects your project's current functionality and organization:
-
----
-
 # FastTrajectoryReplanning_AI-Agent
+# By: Omar Waseem and Felipe Da Silva
 
-**CS440 Assignment – Fast Trajectory Replanning**  
 This project implements a fast trajectory replanning system using multiple variants of A* search in a gridworld environment. The agent navigates from a starting cell to a target cell in a gridworld that is initially unknown. As it moves, the agent updates its knowledge of obstacles and replans its route if necessary.
 
 ## Overview
@@ -102,10 +98,3 @@ Fork this repo and create a pull request with your changes. For significant modi
 
 ## License
 (Optional) This project is released under the MIT License.
-
-## Contact
-For questions or feedback, please open an issue or contact [fill.ds07@gmail.com].
-
----
-
-This README now accurately describes your project’s current functionality, organization, and usage, and aligns with the assignment requirements. Let me know if you need further adjustments!
